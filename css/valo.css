@@ -1,0 +1,261 @@
+/* couleur clair : #1e1e2f 
+couleur foncé : #14141f*/
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #1e1e2f;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff4655;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(to bottom, #14141f, #1e1e2f);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#disco-link {
+    background: #ff4655;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.25s ease-in-out, background 0.25s ease-in-out;
+    display: inline-block;
+}
+
+#disco-link:hover {
+    background: #e8404e;
+    transform: scale(1.1);
+}
+
+
+/* About Section */
+.about {
+    padding: 3rem 2rem;
+    background: #1e1e2f;
+    color: white;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Agents Section */
+.agents {
+    padding: 3rem ;
+    background: #1e1e2f;
+    color: white;
+}
+
+.agents h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+a{
+    text-decoration: none;
+}
+.agent-card {
+    height: 300px;
+    background: #14141f;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.image-agent{
+    height: 80%;
+}
+
+.agent-card:hover {
+    background: #ff4655;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Maps Section */
+.maps {
+    padding: 3rem 2rem;
+    background: #14141f;
+    color: white;
+}
+
+.maps h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.maps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.map-card {
+    height: 300px;
+    background: #1e1e2f;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.map-card:hover {
+    background: #ff4655;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #14141f;
+    color: white;
+}
+
+/* Statistiques */
+.stats{
+    padding: 3rem 2rem;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    background-color: #14141f;
+    min-width: 150px;
+}
+
+.stats h2{
+    padding-bottom: 1rem;
+}
+
+.stats p{
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.valotracker {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 2rem; 
+    background-color: #14141f;
+    width: 100%; 
+    height: 100px;
+}
+
+
+.image-stats {
+    color:white;
+    width: 200px; 
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e2f;
+    border-radius: 8px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.image-stats:hover {
+    background: #ff4655;
+    color: white;
+    transform: scale(1.05);
+}
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: none; /* Caché par défaut */
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #e8404e;
+    transform: scale(1.1);
+}
+
+.image-map {
+    height: 90%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
