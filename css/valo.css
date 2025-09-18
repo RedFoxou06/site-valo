@@ -1,7 +1,6 @@
 /* couleur clair : #1e1e2f 
 couleur foncé : #14141f*/
 
-
 /* General Reset */
 * {
     margin: 0;
@@ -23,6 +22,15 @@ couleur foncé : #14141f*/
     left: 0;
     width: 100%;
     z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.visible {
+    transform: translateY(0);
 }
 
 .nav-links {
@@ -41,6 +49,34 @@ couleur foncé : #14141f*/
     color: #ff4655;
 }
 
+/* Menu burger - caché par défaut */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* Animation du menu burger */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
 /* Hero Section */
 .hero {
     text-align: center;
@@ -50,12 +86,12 @@ couleur foncé : #14141f*/
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-bottom: 2rem;
 }
 
@@ -77,7 +113,6 @@ couleur foncé : #14141f*/
     transform: scale(1.1);
 }
 
-
 /* About Section */
 .about {
     padding: 3rem 2rem;
@@ -88,17 +123,19 @@ couleur foncé : #14141f*/
 .about h2 {
     text-align: center;
     margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .about p {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 /* Agents Section */
 .agents {
-    padding: 3rem ;
+    padding: 3rem 2rem;
     background: #1e1e2f;
     color: white;
 }
@@ -106,18 +143,20 @@ couleur foncé : #14141f*/
 .agents h2 {
     text-align: center;
     margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .agents-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
-a{
+a {
     text-decoration: none;
 }
+
 .agent-card {
     height: 300px;
     background: #14141f;
@@ -128,7 +167,7 @@ a{
     transition: transform 0.3s, background 0.3s;
 }
 
-.image-agent{
+.image-agent {
     height: 80%;
 }
 
@@ -148,11 +187,12 @@ a{
 .maps h2 {
     text-align: center;
     margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .maps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -176,45 +216,47 @@ a{
 /* Footer */
 footer {
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem 2rem;
     background: #14141f;
     color: white;
 }
 
 /* Statistiques */
-.stats{
+.stats {
     padding: 3rem 2rem;
-    color:white;
+    color: white;
     text-decoration: none;
     text-align: center;
     background-color: #14141f;
-    min-width: 150px;
 }
 
-.stats h2{
+.stats h2 {
     padding-bottom: 1rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
-.stats p{
+.stats p {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .valotracker {
     display: flex;
     justify-content: center;
-    align-items: center; 
-    gap: 2rem; 
+    align-items: center;
+    gap: 2rem;
     background-color: #14141f;
-    width: 100%; 
-    height: 100px;
+    width: 100%;
+    min-height: 100px;
+    flex-wrap: wrap;
+    padding: 1rem;
 }
 
-
 .image-stats {
-    color:white;
-    width: 200px; 
+    color: white;
+    min-width: 150px;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -223,8 +265,8 @@ footer {
     border-radius: 8px;
     font-size: 15px;
     text-align: center;
-    border-radius: 8px;
     transition: transform 0.3s, background 0.3s;
+    padding: 0 1rem;
 }
 
 .image-stats:hover {
@@ -245,7 +287,7 @@ footer {
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
-    display: none; /* Caché par défaut */
+    display: none;
     transition: opacity 0.3s, transform 0.3s;
 }
 
@@ -258,4 +300,172 @@ footer {
     height: 90%;
     margin-top: 5%;
     border-radius: 10px;
+    max-width: 100%;
+}
+
+/* Content pour la démo */
+.content-section {
+    padding: 4rem 2rem;
+    background: #14141f;
+    color: white;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* Media Queries pour la responsivité */
+
+/* Tablettes */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 4rem 1rem;
+    }
+
+    .agents-grid,
+    .maps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .agent-card,
+    .map-card {
+        height: 250px;
+        padding: 1.5rem;
+    }
+
+    .valotracker {
+        gap: 1rem;
+    }
+
+    .image-stats {
+        min-width: 120px;
+        font-size: 13px;
+    }
+}
+
+/* Smartphones */
+@media screen and (max-width: 480px) {
+    /* Navigation mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #1e1e2f;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        padding: 0;
+    }
+
+    .nav-links.active {
+        max-height: 300px;
+        padding: 1rem 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    /* Sections */
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .about,
+    .agents,
+    .maps,
+    .stats {
+        padding: 2rem 1rem;
+    }
+
+    .content-section {
+        padding: 3rem 1rem;
+    }
+
+    .agents-grid,
+    .maps-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .agent-card,
+    .map-card {
+        height: 200px;
+        padding: 1rem;
+    }
+
+    .valotracker {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .image-stats {
+        width: 80%;
+        min-width: auto;
+    }
+
+    #scrollTopBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Très petits écrans */
+@media screen and (max-width: 320px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    #disco-link {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .agent-card,
+    .map-card {
+        height: 180px;
+        padding: 0.8rem;
+    }
 }
