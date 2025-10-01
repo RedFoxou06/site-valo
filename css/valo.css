@@ -153,6 +153,8 @@ couleur foncé : #14141f*/
     margin-top: 2rem;
 }
 
+
+
 a {
     text-decoration: none;
 }
@@ -166,6 +168,15 @@ a {
     border-radius: 8px;
     transition: transform 0.3s, background 0.3s;
 }
+
+.texte-valo, p {
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+    color: white;
+    line-height: 1.6;
+}
+
 
 .image-agent {
     height: 80%;
