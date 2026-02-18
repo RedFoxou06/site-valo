@@ -423,6 +423,7 @@ h2 {
     padding-left: 1.5rem;
 }
 
+/* ── MAPS ── */
 .maps-bg { background: var(--dark); }
 
 .maps-inner {
@@ -469,6 +470,7 @@ h2 {
     transition: filter 0.3s;
 }
 
+/* ── FOOTER ── */
 footer {
     background: var(--darker);
     border-top: 1px solid var(--border);
@@ -493,6 +495,7 @@ footer .copy {
     color: var(--text-dim);
 }
 
+/* ── SCROLL TOP BTN ── */
 #scrollTopBtn {
     position: fixed;
     bottom: 2rem;
@@ -514,15 +517,89 @@ footer .copy {
     transform: translateY(-3px);
 }
 
+/* ── ANIMATIONS ── */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── BURGER BUTTON ── */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 110;
+}
+
+.burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: transform 0.3s, opacity 0.3s, background 0.2s;
+    transform-origin: center;
+}
+
+.burger:hover span { background: var(--red); }
+
+/* Burger → X animation */
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
     .navbar { padding: 0 1.5rem; }
-    .nav-links { gap: 1.2rem; }
-    .nav-links a { font-size: 0.75rem; }
+
+    .burger { display: flex; }
+
+    nav {
+        position: fixed;
+        top: 64px;
+        left: 0; right: 0;
+        background: rgba(9, 10, 11, 0.98);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-110%);
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+        pointer-events: none;
+        z-index: 99;
+    }
+
+    nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+        border-left: 2px solid transparent;
+        transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .nav-links li a:hover {
+        border-left-color: var(--red);
+        background: var(--red-dim);
+        color: var(--white);
+    }
+
+    .nav-links a::after { display: none; }
+
     .about-inner { grid-template-columns: 1fr; gap: 2rem; }
     .agents-grid, .maps-grid { grid-template-columns: repeat(2, 1fr); }
     .valotracker { grid-template-columns: 1fr; }
